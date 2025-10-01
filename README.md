@@ -157,10 +157,10 @@ Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için [LICENSE](LICE
 
 ## 📞 İletişim
 
-**Proje Sahibi**: Tamer S.
-- 📧 Email: [email@example.com]
-- 💼 LinkedIn: [LinkedIn Profile]
-- 🐦 Twitter: [@username]
+**Proje Sahibi**: Onur Ülker,Tamer Yurdakul
+- 📧 Email: [onurulker10@gmail.com]
+- 💼 LinkedIn: [[linkedin/in](https://www.linkedin.com/in/onurulker)]
+- 🐦 Twitter: [onurulker26]
 
 ---
 
