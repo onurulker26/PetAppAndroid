@@ -107,10 +107,10 @@ Aşağıdaki aktiviteler Jetpack Compose kullanacak şekilde modernize edilmişt
 
 ```bash
 # Repo'yu klonlayın
-git clone https://github.com/username/PetAppjcSongibi2.git
+git clone https://github.com/username/PetAppAndroid.git
 
 # Android Studio'da projeyi açın
-cd PetAppjcSongibi2
+cd PetAppAndroid
 
 # Firebase yapılandırması
 # google-services.json dosyasını app/ dizinine ekleyin
