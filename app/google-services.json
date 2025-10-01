@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "877660738696",
+    "project_id": "pet-app-a9b51",
+    "storage_bucket": "pet-app-a9b51.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:877660738696:android:2442696c35a28eb8223b3d",
+        "android_client_info": {
+          "package_name": "com.tamer.petapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBs0_qo5SBNXYf0teHMSBA35JcmmGu4Pfo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

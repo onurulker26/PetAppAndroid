@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Ana tema renkleri -->
+    <color name="primary">#5E35B1</color>          <!-- Ana mor ton - zarif ve dostane -->
+    <color name="primary_dark">#4527A0</color>     <!-- Durum çubuğu için koyu mor -->
+    <color name="primary_light">#D1C4E9</color>    <!-- Hafif mor vurgu -->
+    <color name="accent">#FF9800</color>           <!-- Turuncu aksan - enerjik, dikkat çekici -->
+    <color name="accent_dark">#F57C00</color>      <!-- Koyu turuncu vurgu -->
+    <color name="accent_light">#FFE0B2</color>     <!-- Hafif turuncu vurgu -->
+    
+    <!-- Android varsayılan renkleri (hata alınmaması için eklendi) -->
+    <color name="purple_500">#5E35B1</color>      <!-- Bizim primary rengimizle aynı -->
+    <color name="purple_700">#4527A0</color>      <!-- Bizim primary_dark rengimizle aynı -->
+    <color name="purple_100">#EDE7F6</color>      <!-- Çok açık mor - arka plan için -->
+    <color name="purple_200">#FFBB86FC</color>    <!-- Material teması için -->
+    <color name="teal_200">#FF9800</color>        <!-- Bizim accent rengimizle aynı -->
+    <color name="teal_700">#F57C00</color>        <!-- Bizim accent_dark rengimizle aynı -->
+    
+    <!-- Fonksiyonel renkler -->
+    <color name="success">#43A047</color>          <!-- Başarı yeşili -->
+    <color name="error">#E53935</color>            <!-- Hata kırmızısı -->
+    <color name="warning">#FFB300</color>          <!-- Uyarı sarısı -->
+    <color name="info">#039BE5</color>             <!-- Bilgi mavisi -->
+    <color name="green_700">#388E3C</color>        <!-- Koyu yeşil - durum göstergeleri için -->
+    <color name="green_500">#FF4CAF50</color>      <!-- Yeşil - veteriner ikonları için -->
+    <color name="blue_500">#FF2196F3</color>       <!-- Mavi - kullanıcı konumu için -->
+    <color name="orange_500">#FFFF9800</color>     <!-- Turuncu - vurgu için -->
+    
+    <!-- Arka plan renkleri -->
+    <color name="background">#FAFAFA</color>       <!-- Ana arka plan - hafif gri -->
+    <color name="surface">#FFFFFF</color>          <!-- Kart yüzeyi - beyaz -->
+    <color name="container">#F5F5F5</color>        <!-- İkincil container arka planı -->
+    
+    <!-- Metin renkleri -->
+    <color name="text_primary">#212121</color>     <!-- Ana metin rengi - koyu gri-->
+    <color name="text_secondary">#757575</color>   <!-- İkincil metin rengi - orta gri -->
+    <color name="text_hint">#9E9E9E</color>        <!-- İpucu metni - açık gri -->
+    
+    <!-- Özel bileşen renkleri -->
+    <color name="divider">#E0E0E0</color>          <!-- Ayırıcı çizgiler -->
+    <color name="ripple">#E0E0E0</color>           <!-- Dokunma efekti -->
+    <color name="disabled">#BDBDBD</color>         <!-- Devre dışı bileşenler -->
+    <color name="shimmer_base">#F5F5F5</color>     <!-- Shimmering effect rengi -->
+    <color name="shimmer_highlight">#FFFFFF</color><!-- Shimmering highlight rengi-->
+    
+    <!-- Renk üzerindeki metin renkleri -->
+    <color name="on_primary">#FFFFFF</color>       <!-- Mor üzerindeki metin -->
+    <color name="on_primary_light">#000000</color> <!-- Açık mor üzerindeki metin -->
+    <color name="on_accent">#000000</color>        <!-- Turuncu üzerindeki metin -->
+    <color name="on_success">#FFFFFF</color>       <!-- Yeşil üzerindeki metin -->
+    <color name="on_error">#FFFFFF</color>         <!-- Kırmızı üzerindeki metin -->
+    
+    <!-- Temel renkler (sistemden referans edilenler için) -->
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    
+    <!-- Evcil hayvan kategorileri için renkler -->
+    <color name="pet_cat">#E91E63</color>          <!-- Kedi - pembe -->
+    <color name="pet_dog">#2196F3</color>          <!-- Köpek - mavi -->
+    <color name="pet_bird">#4CAF50</color>         <!-- Kuş - yeşil-->
+    <color name="pet_fish">#00BCD4</color>         <!-- Balık - turkuaz -->
+    <color name="pet_other">#FF5722</color>        <!-- Diğer - turuncu -->
+    
+    <!-- Material paletten eski renk adları (uyumluluk için) -->
+    <color name="colorPrimary">@color/primary</color>
+    <color name="colorPrimaryDark">@color/primary_dark</color>
+    <color name="colorAccent">@color/accent</color>
+    <color name="colorSuccess">@color/success</color>
+    <color name="colorError">@color/error</color>
+    
+    <!-- Diğer renk grupları (referans için) -->
+    <color name="gray_50">#FAFAFA</color>
+    <color name="gray_100">#F5F5F5</color>
+    <color name="gray_200">#EEEEEE</color>
+    <color name="gray_300">#E0E0E0</color>
+    <color name="gray_400">#BDBDBD</color>
+    <color name="gray_500">#9E9E9E</color>
+    <color name="gray_600">#757575</color>
+    <color name="gray_700">#616161</color>
+    <color name="gray_800">#424242</color>
+    <color name="gray_900">#212121</color>
+    
+    <!-- Durum göstergeleri için renkler -->
+    <color name="selected_indicator">#5E35B1</color>  <!-- Seçili öğe göstergesi - primary ile aynı -->
+    <color name="selected_item_background">#EDE7F6</color>  <!-- Seçili öğe arka planı - purple_100 ile aynı -->
+</resources>

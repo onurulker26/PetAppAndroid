@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Margin/padding değerleri -->
+    <dimen name="default_margin">16dp</dimen>
+    <dimen name="small_margin">8dp</dimen>
+    <dimen name="tiny_margin">4dp</dimen>
+    <dimen name="large_margin">24dp</dimen>
+    
+    <!-- Text size değerleri -->
+    <dimen name="text_size_small">12sp</dimen>
+    <dimen name="text_size_medium">14sp</dimen>
+    <dimen name="text_size_large">16sp</dimen>
+    <dimen name="text_size_xlarge">18sp</dimen>
+    <dimen name="text_size_title">20sp</dimen>
+    
+    <!-- Özel değerler -->
+    <dimen name="pet_card_height">180dp</dimen>
+    <dimen name="card_elevation">4dp</dimen>
+    <dimen name="card_corner_radius">8dp</dimen>
+    <dimen name="map_padding">100dp</dimen>
+    
+    <!-- Banner değerleri -->
+    <dimen name="banner_item_margin">6dp</dimen>
+</resources> 

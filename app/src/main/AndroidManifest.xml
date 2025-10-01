@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.tamer.petapp">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <application
+        android:name=".PetApplication"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.PetApp"
+        tools:targetApi="31">
+        <activity
+            android:name=".auth.LoginActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name=".auth.RegisterActivity"
+            android:exported="false" />
+            
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+        </activity>
+            
+        <activity
+            android:name=".AddPetActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+
+        <activity
+            android:name=".PetsListActivity"
+            android:label="@string/your_pets"
+            android:exported="false" />
+
+        <activity
+            android:name=".vaccination.VaccinationsActivity"
+            android:label="@string/vaccinations"
+            android:exported="false" />
+
+        <activity
+            android:name=".vaccination.AddVaccinationActivity"
+            android:label="@string/add_vaccination"
+            android:exported="false" />
+
+        <activity
+            android:name=".treatment.TreatmentsActivity"
+            android:label="@string/treatments"
+            android:exported="false" />
+
+        <activity
+            android:name=".treatment.AddTreatmentActivity"
+            android:label="@string/add_treatment"
+            android:exported="false" />
+
+        <activity
+            android:name=".treatment.TreatmentDetailsActivity"
+            android:label="@string/treatment_details"
+            android:exported="false"
+            android:parentActivityName=".treatment.TreatmentsActivity" />
+
+        <activity
+            android:name=".VetClinicsActivity"
+            android:label="@string/nearby_vet_clinics"
+            android:exported="false" />
+
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".guide.PetCareGuideActivity"
+            android:label="@string/pet_care_guide"
+            android:exported="false" />
+
+        <activity
+            android:name=".guide.PetCareGuideDetailActivity"
+            android:label="@string/pet_care_guide"
+            android:exported="false" />
+
+        <activity
+            android:name=".forum.ForumActivity"
+            android:exported="false"
+            android:label="@string/forum"
+            android:parentActivityName=".MainActivity" />
+
+        <activity
+            android:name=".forum.AddPostActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".forum.PostDetailActivity"
+            android:exported="false"
+            android:parentActivityName=".forum.ForumActivity" />
+
+        <activity
+            android:name=".forum.UserProfileActivity"
+            android:exported="false"
+            android:parentActivityName=".forum.ForumActivity"
+            android:theme="@style/Theme.PetApp">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".forum.ForumActivity" />
+        </activity>
+
+        <activity
+            android:name=".admin.AdminActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"
+            android:label="Admin Paneli" />
+
+        <activity
+            android:name=".ui.disease.DiseaseAnalysisActivity"
+            android:exported="false"
+            android:label="Hastalık Analizi" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAYLHy0ZqrxEnBJEfvja-7_N25Ojm7aeiE" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+    </application>
+
+</manifest>

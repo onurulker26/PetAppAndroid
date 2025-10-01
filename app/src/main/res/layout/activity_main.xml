@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Üst Kısım - Gradient Başlık -->
+        <View
+            android:id="@+id/viewHeaderBackground"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/login_top_background"
+            app:layout_constraintDimensionRatio="H,12:1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Progress Bar -->
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- App Logo -->
+        <ImageView
+            android:id="@+id/ivAppLogo"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/ic_pet_logo_white"
+            app:layout_constraintBottom_toBottomOf="@id/viewHeaderBackground"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/viewHeaderBackground" />
+
+        <!-- App İsmi -->
+        <TextView
+            android:id="@+id/tvAppTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="Pet App"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/viewHeaderBackground"
+            app:layout_constraintStart_toEndOf="@id/ivAppLogo"
+            app:layout_constraintTop_toTopOf="@id/viewHeaderBackground" />
+
+        <!-- Profil Butonu -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardProfile"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginEnd="16dp"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/viewHeaderBackground"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/viewHeaderBackground">
+
+            <ImageView
+                android:id="@+id/ivProfilePic"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_pet_logo" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            android:overScrollMode="never"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/viewHeaderBackground">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="16dp"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp">
+
+                <!-- Duyuru/Banner Alanı -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="4dp">
+                    
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/bannerRecyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="220dp"
+                        android:background="@android:color/transparent"
+                        android:clipToPadding="false"
+                        android:padding="0dp"
+                        android:orientation="horizontal"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Kategoriler Başlığı -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="6dp"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:text="Evcil Dostlarınız İçin"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp" />
+
+                <!-- Ana Kartlar Grid -->
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:columnCount="2"
+                    android:rowCount="3"
+                    android:alignmentMode="alignMargins"
+                    android:useDefaultMargins="false"
+                    android:layout_marginTop="4dp">
+
+                    <!-- Evcil Hayvanlar Kartı -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardPets"
+                        android:layout_width="0dp"
+                        android:layout_height="120dp"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="4dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:stateListAnimator="@animator/card_raise"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="3dp"
+                        app:strokeColor="#E0E0E0"
+                        app:strokeWidth="1dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="12dp">
+
+                            <ImageView
+                                android:layout_width="44dp"
+                                android:layout_height="44dp"
+                                android:src="@drawable/ic_pet_logo"
+                                android:elevation="2dp"
+                                app:tint="@color/primary" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:text="Evcil Hayvanlarınız"
+                                android:textAlignment="center"
+                                android:fontFamily="@font/montserrat_medium"
+                                android:textSize="14sp"
+                                android:maxLines="1"
+                                android:ellipsize="end"
+                                android:textColor="@color/text_primary" />
+
+                            <TextView
+                                android:id="@+id/tvPetsCount"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="Tüm hayvanlarınız"
+                                android:textAlignment="center"
+                                android:fontFamily="@font/montserrat"
+                                android:textSize="11sp"
+                                android:maxLines="1"
+                                android:ellipsize="end"
+                                android:textColor="@color/text_secondary" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Evcil Hayvan Ekle Kartı -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardAddPet"
+                        android:layout_width="0dp"
+                        android:layout_height="120dp"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="4dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:stateListAnimator="@animator/card_raise"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="3dp"
+                        app:cardBackgroundColor="@color/primary">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="12dp">
+
+                            <ImageView
+                                android:id="@+id/ivAddPetIcon"
+                                android:layout_width="44dp"
+                                android:layout_height="44dp"
+                                android:contentDescription="@string/add_pet"
+                                android:src="@drawable/ic_add_pet"
+                                android:elevation="2dp"
+                                app:tint="@color/white" />
+
+                            <TextView
+                                android:id="@+id/tvAddPetTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:text="Evcil Hayvan Ekle"
+                                android:fontFamily="@font/montserrat_medium"
+                                android:textColor="@color/white"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/tvAddPetDesc"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="Yeni kayıt oluştur"
+                                android:fontFamily="@font/montserrat"
+                                android:textColor="@color/white"
+                                android:textSize="11sp" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Aşı Takip Kartı -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardVaccinations"
+                        android:layout_width="0dp"
+                        android:layout_height="120dp"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="4dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:stateListAnimator="@animator/card_raise"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="3dp"
+                        app:strokeColor="#E0E0E0"
+                        app:strokeWidth="1dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="12dp">
+
+                            <ImageView
+                                android:id="@+id/ivVaccinationIcon"
+                                android:layout_width="44dp"
+                                android:layout_height="44dp"
+                                android:src="@drawable/ic_vaccination"
+                                android:elevation="2dp"
+                                app:tint="@color/primary" />
+
+                            <TextView
+                                android:id="@+id/tvVaccinationTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:text="Aşı Takibi"
+                                android:fontFamily="@font/montserrat_medium"
+                                android:textSize="14sp"
+                                android:textColor="@color/text_primary" />
+
+                            <TextView
+                                android:id="@+id/tvVaccinationCount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="Yaklaşan aşılar"
+                                android:fontFamily="@font/montserrat"
+                                android:textSize="11sp"
+                                android:textColor="@color/text_secondary" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Tedavi Takip Kartı -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardTreatment"
+                        android:layout_width="0dp"
+                        android:layout_height="120dp"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="4dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:stateListAnimator="@animator/card_raise"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="3dp"
+                        app:strokeColor="#E0E0E0"
+                        app:strokeWidth="1dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="12dp">
+
+                            <ImageView
+                                android:id="@+id/ivTreatmentIcon"
+                                android:layout_width="44dp"
+                                android:layout_height="44dp"
+                                android:src="@drawable/ic_syringe"
+                                android:elevation="2dp"
+                                app:tint="@color/primary" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:text="Tedavi Takibi"
+                                android:fontFamily="@font/montserrat_medium"
+                                android:textSize="14sp"
+                                android:textColor="@color/text_primary" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="Aktif tedaviler"
+                                android:fontFamily="@font/montserrat"
+                                android:textSize="11sp"
+                                android:textColor="@color/text_secondary" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                </GridLayout>
+
+                <!-- Forum Başlığı -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="6dp"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:text="Topluluk"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp" />
+
+                <!-- Forum Kartı -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardForum"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_margin="4dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:stateListAnimator="@animator/card_raise"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="3dp"
+                    app:cardBackgroundColor="@color/primary">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:padding="16dp">
+
+                        <ImageView
+                            android:id="@+id/ivForumIcon"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/ic_forum"
+                            android:elevation="2dp"
+                            app:tint="@color/white" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="16dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Evcil Hayvan Forumu"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:textSize="16sp"
+                                android:textColor="@color/white" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="Sorular sorun, deneyim paylaşın"
+                                android:fontFamily="@font/montserrat"
+                                android:textSize="12sp"
+                                android:textColor="@color/white" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:text="Forumlara Katıl ›"
+                                android:fontFamily="@font/montserrat_medium"
+                                android:textSize="12sp"
+                                android:textColor="#FFD54F" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <!-- Bottom Navigation -->
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:elevation="16dp"
+            app:itemIconTint="@color/bottom_nav_color"
+            app:itemTextColor="@color/bottom_nav_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:menu="@menu/bottom_nav_menu" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Bottom Sheet -->
+    <LinearLayout
+        android:id="@+id/bottomSheetPets"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="300dp"
+        android:maxHeight="500dp"
+        android:orientation="vertical"
+        android:background="@drawable/bottom_sheet_background"
+        android:padding="20dp"
+        android:elevation="16dp"
+        app:behavior_hideable="true"
+        app:behavior_peekHeight="0dp"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Evcil Hayvanlarınız"
+                android:fontFamily="@font/montserrat_bold"
+                android:textColor="@color/text_primary"
+                android:textSize="20sp"
+                android:layout_marginBottom="16dp"/>
+
+            <ImageButton
+                android:id="@+id/btnCloseBottomSheet"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_alignParentEnd="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Kapat"
+                android:src="@android:drawable/ic_menu_close_clear_cancel"
+                app:tint="@color/text_secondary" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tvEmptyPets"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Henüz evcil hayvan eklenmemiş"
+            android:fontFamily="@font/montserrat"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:padding="16dp"
+            android:visibility="gone" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvPets"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:clipToPadding="false"
+            tools:listitem="@layout/item_pet"/>
+
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

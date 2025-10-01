@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="320dp"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="8dp"
+    android:layout_marginVertical="4dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="6dp"
+    app:strokeColor="#EEEEEE"
+    app:strokeWidth="0.5dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/ivBanner"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:src="@tools:sample/backgrounds/scenic" />
+
+        <!-- Başlık için gradient overlay (Daha güçlü gradient) -->
+        <View
+            android:id="@+id/gradientOverlay"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:background="@drawable/banner_gradient"
+            app:layout_constraintBottom_toBottomOf="@id/ivBanner"
+            app:layout_constraintStart_toStartOf="@id/ivBanner"
+            app:layout_constraintEnd_toEndOf="@id/ivBanner" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="12dp"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:shadowColor="#66000000"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="3"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintBottom_toBottomOf="@id/ivBanner"
+            app:layout_constraintEnd_toEndOf="@id/ivBanner"
+            app:layout_constraintStart_toStartOf="@id/ivBanner"
+            tools:text="Duyuru Başlığı" />
+
+        <!-- Açıklama bölümü (arka plan gölgesi daha belirgin) -->
+        <View
+            android:id="@+id/contentBackground"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/banner_content_background"
+            app:layout_constraintTop_toBottomOf="@id/ivBanner"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/tvDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="12dp"
+            android:textColor="#424242"
+            android:textSize="14sp"
+            android:lineSpacingExtra="2dp"
+            android:maxLines="3"
+            android:minLines="2"
+            android:ellipsize="end"
+            app:layout_constraintTop_toBottomOf="@id/ivBanner"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="Duyuru açıklaması burada yer alacak. Üç satıra sığacak şekilde gösterilecek ve gerekirse kısaltılacak." />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAction"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="12dp"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="0dp"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:textAllCaps="false"
+            android:textSize="13sp"
+            android:maxWidth="180dp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:cornerRadius="18dp"
+            app:backgroundTint="#5D9CEC"
+            app:rippleColor="#3D78CD"
+            app:elevation="2dp"
+            app:layout_constraintTop_toBottomOf="@id/tvDescription"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="Detayları Gör" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView> 

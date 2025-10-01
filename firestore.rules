@@ -1,0 +1,119 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Yardımcı fonksiyonlar
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    function isOwner(userId) {
+      return request.auth.uid == userId;
+    }
+    
+    function isAdmin() {
+      return request.auth != null && 
+        (request.auth.uid == 'ES9Vqa1m5eODBIaa0yYYNZsBh4q1' || request.auth.uid == 'ADMIN_UID2');
+    }
+    
+    function isValidData() {
+      return request.resource.data.keys().hasAll(['title', 'content', 'userId', 'userName', 'createdAt']);
+    }
+
+    // Kullanıcı dokümanlarına erişim kuralları
+    match /users/{userId} {
+      // Kullanıcılar sadece kendi bilgilerine erişebilir
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+      
+      // Evcil hayvan koleksiyonuna erişim
+      match /pets/{petId} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+        
+        // Aşı koleksiyonuna erişim
+        match /vaccinations/{vaccinationId} {
+          allow read, write: if request.auth != null && request.auth.uid == userId;
+        }
+        
+        // Tedavi koleksiyonuna erişim
+        match /treatments/{treatmentId} {
+          allow read, write: if request.auth != null && request.auth.uid == userId;
+          
+          // Belge koleksiyonuna erişim
+          match /documents/{documentId} {
+            allow read, write: if request.auth != null && request.auth.uid == userId;
+          }
+        }
+      }
+      
+      // Randevu koleksiyonuna erişim
+      match /appointments/{appointmentId} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+      
+      // Kullanıcı seviyesinde tedaviler
+      match /treatments/{treatmentId} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+      
+      // Kullanıcı seviyesinde aşılar
+      match /vaccinations/{vaccinationId} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+    }
+    
+    // Veteriner klinikleri (herkes okuyabilir)
+    match /vet_clinics/{clinicId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null && isAdmin();
+    }
+    
+    // Duyurular için kurallar
+    match /announcements/{announcementId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null && isAdmin();
+    }
+    
+    // Test verileri için kurallar
+    match /test_collection/{document=**} {
+      allow read, write: if request.auth != null;
+    }
+    
+    // Forum kategorileri için kurallar
+    match /forumCategories/{categoryId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update, delete: if request.auth != null && 
+        (request.resource.data.diff(resource.data).affectedKeys()
+          .hasOnly(['name', 'description', 'order', 'updatedAt']));
+    }
+    
+    // Forum gönderileri için kurallar
+    match /forum_posts/{postId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null && 
+        request.auth.uid == resource.data.authorId;
+      allow update, delete: if request.auth != null && 
+        (request.auth.uid == resource.data.authorId || isAdmin());
+      
+      // Forum yorumları
+      match /comments/{commentId} {
+        allow read: if request.auth != null;
+        allow create: if request.auth != null && 
+          request.auth.uid == resource.data.authorId;
+        allow update, delete: if request.auth != null && 
+          (request.auth.uid == resource.data.authorId || isAdmin());
+      }
+    }
+    
+    // Pet care guide (herkes okuyabilir, admin yazabilir)
+    match /pet_care_guides/{guideId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null && isAdmin();
+    }
+    
+    // Uygulama kullanım istatistikleri (sadece sistem yazabilir)
+    match /app_usage_stats/{statId} {
+      allow read: if request.auth != null && isAdmin();
+      allow write: if request.auth != null;
+    }
+  }
+} 

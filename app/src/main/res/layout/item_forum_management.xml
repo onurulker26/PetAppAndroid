@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp"
+    app:strokeColor="#E0E0E0"
+    app:strokeWidth="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Gönderi Başlığı ve Etiketler -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp"
+                    tools:text="Forum Gönderisi Başlığı" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipCategory"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        app:chipBackgroundColor="#4CAF50"
+                        app:chipMinHeight="28dp"
+                        app:textEndPadding="8dp"
+                        app:textStartPadding="8dp"
+                        android:textColor="@android:color/white"
+                        tools:text="Kategori" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipReported"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text="Raporlandı"
+                        android:textSize="12sp"
+                        app:chipBackgroundColor="#F44336"
+                        app:chipMinHeight="28dp"
+                        app:textEndPadding="8dp"
+                        app:textStartPadding="8dp"
+                        android:textColor="@android:color/white"
+                        android:visibility="gone"
+                        tools:visibility="visible" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipPending"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text="Onay Bekliyor"
+                        android:textSize="12sp"
+                        app:chipBackgroundColor="#FF9800"
+                        app:chipMinHeight="28dp"
+                        app:textEndPadding="8dp"
+                        app:textStartPadding="8dp"
+                        android:textColor="@android:color/white"
+                        android:visibility="gone"
+                        tools:visibility="visible" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/btnEdit"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="Düzenle"
+                    android:src="@android:drawable/ic_menu_edit"
+                    app:tint="#757575" />
+
+                <ImageButton
+                    android:id="@+id/btnDelete"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginStart="4dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="Sil"
+                    android:src="@android:drawable/ic_menu_delete"
+                    app:tint="#F44336" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Gönderi İçeriği -->
+        <TextView
+            android:id="@+id/tvContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/montserrat"
+            android:maxLines="3"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp"
+            tools:text="Bu bir forum gönderisi içeriğidir. İçerik birden fazla satıra taşabilir ve içeriğin tamamı burada gösterilmez." />
+
+        <!-- Rapor Sebebi -->
+        <TextView
+            android:id="@+id/tvReportReason"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="#FFF3F3"
+            android:padding="8dp"
+            android:fontFamily="@font/montserrat"
+            android:textColor="#F44336"
+            android:textStyle="italic"
+            android:textSize="14sp"
+            android:visibility="gone"
+            tools:visibility="visible"
+            tools:text="Rapor Sebebi: Uygunsuz içerik" />
+
+        <!-- Kullanıcı Bilgisi ve Tarih -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/ivUserPhoto"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:contentDescription="Kullanıcı Profil Fotoğrafı"
+                android:src="@drawable/ic_profile"
+                app:tint="#757575" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvAuthor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    tools:text="Kullanıcı Adı" />
+
+                <TextView
+                    android:id="@+id/tvDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="12sp"
+                    tools:text="01.01.2023 12:34" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Onay Butonları -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnApprove"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="4dp"
+                android:layout_weight="1"
+                android:text="Onayla"
+                android:fontFamily="@font/montserrat"
+                android:textSize="12sp"
+                app:cornerRadius="8dp"
+                app:icon="@android:drawable/ic_input_add"
+                app:iconGravity="textStart"
+                app:iconSize="18dp"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnReject"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="4dp"
+                android:layout_weight="1"
+                android:text="Reddet"
+                android:textSize="12sp"
+                android:fontFamily="@font/montserrat"
+                app:backgroundTint="#F44336"
+                app:cornerRadius="8dp"
+                app:icon="@android:drawable/ic_menu_close_clear_cancel"
+                app:iconGravity="textStart"
+                app:iconSize="18dp"
+                android:visibility="gone"
+                tools:visibility="visible" />
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView> 

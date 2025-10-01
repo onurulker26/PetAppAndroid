@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="2dp">
+
+    <!-- Sol kenar çubuğu - seçili durum için -->
+    <View
+        android:id="@+id/viewSelectedIndicator"
+        android:layout_width="4dp"
+        android:layout_height="match_parent"
+        android:background="@color/selected_indicator"
+        android:visibility="invisible" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="12dp">
+
+        <!-- Sol taraf: İkon -->
+        <ImageView
+            android:id="@+id/ivClinicIcon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_vet_marker"
+            android:tint="#4CAF50"
+            android:contentDescription="Veteriner Kliniği" />
+
+        <!-- Orta kısım: Bilgiler -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="8dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvClinicName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#212121"
+                android:maxLines="1"
+                android:ellipsize="end" />
+
+            <TextView
+                android:id="@+id/tvClinicAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="#757575"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:layout_marginTop="2dp" />
+                
+            <!-- Çalışma saatleri bilgisi -->
+            <TextView
+                android:id="@+id/tvOpeningHours"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="#757575"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:layout_marginTop="2dp"
+                android:drawableStart="@drawable/ic_schedule"
+                android:drawablePadding="4dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp">
+
+                <TextView
+                    android:id="@+id/tvClinicDistance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textColor="#4CAF50"
+                    android:drawablePadding="4dp"
+                    android:gravity="center_vertical" />
+
+                <TextView
+                    android:id="@+id/tvClinicRating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textColor="#FF9800"
+                    android:layout_marginStart="16dp"
+                    android:drawablePadding="4dp"
+                    android:gravity="center_vertical" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Sağ taraf: Butonlar (dikey olarak) -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+            
+            <!-- Arama butonu -->
+            <Button
+                android:id="@+id/btnCall"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:text="Ara"
+                android:layout_marginBottom="4dp"
+                android:textSize="12sp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:drawableLeft="@drawable/ic_phone"
+                android:drawablePadding="4dp"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#FF5722"
+                android:minWidth="0dp" />
+            
+            <!-- Rota butonu -->
+            <Button
+                android:id="@+id/btnDirections"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:text="Rota"
+                android:textSize="12sp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:drawableLeft="@drawable/ic_directions"
+                android:drawablePadding="4dp"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#4CAF50"
+                android:minWidth="0dp" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView> 

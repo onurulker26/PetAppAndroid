@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="8dp"
+    android:layout_marginVertical="4dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp"
+    app:strokeColor="#E0E0E0"
+    app:strokeWidth="1dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp">
+
+        <ImageView
+            android:id="@+id/ivBannerAdmin"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            android:background="@drawable/rounded_image_background"
+            android:clipToOutline="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_pet_logo" />
+
+        <TextView
+            android:id="@+id/tvBannerTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintStart_toEndOf="@id/ivBannerAdmin"
+            app:layout_constraintEnd_toStartOf="@id/switchContainer"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Duyuru Başlığı" />
+
+        <TextView
+            android:id="@+id/tvBannerDesc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:textSize="14sp"
+            android:textColor="#666666"
+            android:maxLines="2"
+            android:ellipsize="end"
+            app:layout_constraintStart_toEndOf="@id/ivBannerAdmin"
+            app:layout_constraintEnd_toStartOf="@id/switchContainer"
+            app:layout_constraintTop_toBottomOf="@id/tvBannerTitle"
+            tools:text="Duyuru açıklaması burada yer alacak. İki satıra kadar gösterilecek uzun bir açıklama." />
+
+        <TextView
+            android:id="@+id/tvPriority"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:textSize="12sp"
+            android:textColor="#757575"
+            android:background="@drawable/priority_background"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp"
+            app:layout_constraintStart_toEndOf="@id/ivBannerAdmin"
+            app:layout_constraintTop_toBottomOf="@id/tvBannerDesc"
+            tools:text="Öncelik: 1" />
+
+        <LinearLayout
+            android:id="@+id/switchContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/switch_background"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:stateListAnimator="@null"
+            android:foreground="?attr/selectableItemBackground"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/textAktif"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Aktif"
+                android:textSize="12sp"
+                android:textColor="#757575"
+                android:layout_marginEnd="4dp"/>
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/switchActive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="40dp"
+                android:minHeight="20dp"
+                android:clickable="false"
+                android:focusable="false"
+                android:duplicateParentState="true"
+                android:scaleX="0.7"
+                android:scaleY="0.7"
+                android:saveEnabled="true"
+                app:thumbTint="#2196F3"
+                app:trackTint="#BBDEFB"
+                app:useMaterialThemeColors="false"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/switchContainer">
+
+            <ImageButton
+                android:id="@+id/btnEdit"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/circle_button_background"
+                android:src="@drawable/ic_edit"
+                android:tint="#2196F3"
+                android:padding="8dp"
+                android:contentDescription="Düzenle" />
+
+            <ImageButton
+                android:id="@+id/btnDelete"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="@drawable/circle_button_background"
+                android:src="@drawable/ic_delete"
+                android:tint="#F44336"
+                android:padding="8dp"
+                android:contentDescription="Sil" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView> 

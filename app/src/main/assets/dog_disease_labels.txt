@@ -1,0 +1,4 @@
+Bacterial_dermatosis
+Fungal_infections
+Healthy
+Hypersensitivity_allergic_dermatosis

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Gradient arka plan -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="@color/primary"
+                android:endColor="@color/primary_dark"
+                android:angle="135"
+                android:type="linear" />
+        </shape>
+    </item>
+    
+    <!-- Merkezdeki yeni pixel art logo -->
+    <item 
+        android:gravity="center"
+        android:top="-40dp">
+        <vector
+            android:width="160dp"
+            android:height="160dp"
+            android:viewportWidth="120"
+            android:viewportHeight="120">
+
+            <!-- Arka plan daire (beyaz) -->
+            <path
+                android:fillColor="#FFFFFF"
+                android:pathData="M60,10A50,50 0 1,1 60,110A50,50 0 1,1 60,10Z"/>
+            
+            <!-- Dış çerçeve (koyu gri) -->
+            <path
+                android:fillColor="#2C2C2C"
+                android:strokeWidth="2"
+                android:strokeColor="#2C2C2C"
+                android:pathData="M60,8A52,52 0 1,1 60,112A52,52 0 1,1 60,8ZM60,12A48,48 0 1,0 60,108A48,48 0 1,0 60,12Z"/>
+
+            <!-- Kedi/Köpek başı (ana form - kahverengi) -->
+            <path
+                android:fillColor="#D2691E"
+                android:pathData="M60,25L55,30L50,35L48,40L48,45L50,50L55,52L60,54L65,52L70,50L72,45L72,40L70,35L65,30L60,25Z"/>
+            
+            <!-- Kulaklar (kahverengi) -->
+            <path
+                android:fillColor="#D2691E"
+                android:pathData="M48,32L45,25L52,28L50,35ZM72,32L75,25L68,28L70,35Z"/>
+            
+            <!-- Kulak içleri (açık kahverengi) -->
+            <path
+                android:fillColor="#DEB887"
+                android:pathData="M48,30L47,27L50,29ZM72,30L73,27L70,29Z"/>
+
+            <!-- Yüz (beyaz alan) -->
+            <path
+                android:fillColor="#FFFFFF"
+                android:pathData="M55,38L65,38L68,42L68,48L60,52L52,48L52,42L55,38Z"/>
+            
+            <!-- Gözler (siyah) -->
+            <path
+                android:fillColor="#000000"
+                android:pathData="M54,40L56,40L56,42L54,42ZM64,40L66,40L66,42L64,42Z"/>
+            
+            <!-- Burun (siyah) -->
+            <path
+                android:fillColor="#000000"
+                android:pathData="M59,44L61,44L61,46L59,46Z"/>
+            
+            <!-- Ağız (siyah çizgi) -->
+            <path
+                android:fillColor="#000000"
+                android:pathData="M60,46L60,48M56,47L60,47M60,47L64,47"/>
+
+            <!-- Vücut (kahverengi) -->
+            <path
+                android:fillColor="#D2691E"
+                android:pathData="M50,54L70,54L75,60L78,70L75,80L70,85L65,88L55,88L50,85L45,80L42,70L45,60L50,54Z"/>
+            
+            <!-- Göğüs (beyaz) -->
+            <path
+                android:fillColor="#FFFFFF"
+                android:pathData="M55,58L65,58L68,62L68,72L60,78L52,72L52,62L55,58Z"/>
+            
+            <!-- Kollar (kahverengi) -->
+            <path
+                android:fillColor="#D2691E"
+                android:pathData="M42,62L48,65L48,75L45,80L40,78L38,72L40,65L42,62ZM72,62L78,65L80,72L78,78L75,80L72,75L72,65L72,62Z"/>
+            
+            <!-- El/Pençeler (beyaz) -->
+            <path
+                android:fillColor="#FFFFFF"
+                android:pathData="M38,72L42,75L42,78L38,78ZM78,72L82,75L82,78L78,78Z"/>
+            
+            <!-- Bacaklar (kahverengi) -->
+            <path
+                android:fillColor="#D2691E"
+                android:pathData="M52,82L58,85L58,95L55,98L50,96L48,90L50,85L52,82ZM62,82L68,85L70,90L68,96L65,98L62,95L62,85L62,82Z"/>
+            
+            <!-- Ayaklar (beyaz) -->
+            <path
+                android:fillColor="#FFFFFF"
+                android:pathData="M48,90L52,93L52,96L48,96ZM68,90L72,93L72,96L68,96Z"/>
+
+            <!-- Artı işaretleri (parlak kırmızı) -->
+            <path
+                android:fillColor="#FF4444"
+                android:pathData="M25,30L27,30L27,25L30,25L30,27L32,27L32,30L30,30L30,32L27,32L27,30L25,30Z"/>
+            <path
+                android:fillColor="#FF4444"
+                android:pathData="M88,30L90,30L90,25L93,25L93,27L95,27L95,30L93,30L93,32L90,32L90,30L88,30Z"/>
+        </vector>
+    </item>
+    
+    <!-- Uygulama Adı -->
+    <item android:bottom="48dp" android:gravity="center|bottom">
+        <bitmap
+            android:src="@drawable/ic_app_name_white"
+            android:gravity="center" />
+    </item>
+</layer-list> 

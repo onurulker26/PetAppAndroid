@@ -1,0 +1,19 @@
+{
+  "rules": {
+    ".read": "auth != null",
+    ".write": "auth != null",
+    "pets": {
+      "$uid": {
+        ".read": "$uid === auth.uid",
+        ".write": "$uid === auth.uid",
+        "$pet_id": {
+          ".validate": "newData.hasChildren(['id', 'name', 'type'])"
+        }
+      }
+    },
+    "test": {
+      ".read": "auth != null",
+      ".write": "auth != null"
+    }
+  }
+} 

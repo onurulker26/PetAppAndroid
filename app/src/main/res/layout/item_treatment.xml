@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tvTreatmentName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/chipStatus"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Diş Enfeksiyonu Tedavisi" />
+
+        <TextView
+            android:id="@+id/tvPetName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@+id/chipStatus"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTreatmentName"
+            tools:text="Boncuk" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@+id/btnMenu"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Devam Ediyor" />
+            
+        <ImageButton
+            android:id="@+id/btnMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/menu"
+            android:padding="8dp"
+            android:src="@drawable/ic_more_vert"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="12dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvPetName" />
+
+        <TextView
+            android:id="@+id/tvDateLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/treatment_start_date"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+        <TextView
+            android:id="@+id/tvStartDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/tvDateLabel"
+            app:layout_constraintTop_toBottomOf="@+id/divider"
+            tools:text="01.06.2023" />
+
+        <TextView
+            android:id="@+id/tvEndDateLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="16dp"
+            android:text="@string/treatment_end_date"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/tvStartDate"
+            app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+        <TextView
+            android:id="@+id/tvEndDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/tvEndDateLabel"
+            app:layout_constraintTop_toBottomOf="@+id/divider"
+            tools:text="15.06.2023" />
+
+        <ImageView
+            android:id="@+id/ivMedication"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="8dp"
+            android:src="@android:drawable/ic_menu_manage"
+            android:contentDescription="@string/medications"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvDateLabel" />
+
+        <TextView
+            android:id="@+id/tvMedicationCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/ivMedication"
+            app:layout_constraintTop_toBottomOf="@+id/tvDateLabel"
+            tools:text="3 ilaç" />
+
+        <ImageView
+            android:id="@+id/ivAppointment"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="16dp"
+            android:src="@android:drawable/ic_menu_my_calendar"
+            android:contentDescription="@string/vet_appointments"
+            app:layout_constraintStart_toEndOf="@+id/tvMedicationCount"
+            app:layout_constraintTop_toBottomOf="@+id/tvDateLabel" />
+
+        <TextView
+            android:id="@+id/tvAppointmentCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/ivAppointment"
+            app:layout_constraintTop_toBottomOf="@+id/tvDateLabel"
+            tools:text="2 randevu" />
+
+        <ImageView
+            android:id="@+id/ivDocuments"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="16dp"
+            android:src="@android:drawable/ic_menu_agenda"
+            android:contentDescription="@string/treatment_documents"
+            app:layout_constraintStart_toEndOf="@+id/tvAppointmentCount"
+            app:layout_constraintTop_toBottomOf="@+id/tvDateLabel" />
+
+        <TextView
+            android:id="@+id/tvDocumentCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/ivDocuments"
+            app:layout_constraintTop_toBottomOf="@+id/tvDateLabel"
+            tools:text="1 belge" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView> 
